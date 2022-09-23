@@ -3,11 +3,11 @@ import React, { Component } from 'react'
 // setup api baseURL
 let baseURL = ''
 
-if(process.env.NODE_ENV === 'development'){
-  baseURL = 'http://localhost:3000'
-}else{
-  baseURL = 'heroku backend url'
-}
+// if(process.env.NODE_ENV === 'development'){
+//   baseURL = 'http://localhost:3000'
+// }else{
+//   baseURL = 'heroku backend url'
+// }
 
 console.log('current base url: ', baseURL)
 
@@ -15,8 +15,36 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      restaurants: []
+      baseURL: "https://api.yelp.com/v3/",
+      apikey: `apikey${process.env.REACT_APP_API_KEY}`,
+      restaurant: '',
+      searchURL: ''
     }
+  }
+
+  handleChange = (event) => {
+    event.preventDefault()
+    console.log(event.target.id)
+    console.log(event.target.value)
+
+    this.setState({
+      [event.target.id]: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+
+    this.setState({
+      searchURL: this.state.baseURL + this.state.apikey //i have to figure out the rest of this url out.
+    }, () => {
+      fetch(this.state.searchURL)
+        .then((response) => response.json())
+        .then(json => this.setState({
+          restaurant: json,
+          name: ''
+        }), (err) => console.log(err))
+    })
   }
 
   componenetDidMount() {
