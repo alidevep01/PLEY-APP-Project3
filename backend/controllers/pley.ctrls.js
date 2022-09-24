@@ -29,9 +29,24 @@ const destroy = (req, res) => {
   })
 }
 
+// update route
+const update = (req, res) => {
+  db.Review.findByIdAndUpdate(req.params.id,
+    {
+      $set: req.body
+    },
+    {new: true},
+    (err, updatedReview) => {
+      if(err) return res.status(400).json({error: err.message})
+      return res.status(200).json(updatedReview)
+    }
+  )
+}
+
 
 module.exports = {
   index,
   create,
   destroy,
+  update,
 };
