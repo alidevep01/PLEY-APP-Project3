@@ -1,12 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { Component } from "react";
+import NavbarPley from "./components/NavbarPley";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>App Page</h1>
-    </div>
-  );
-}
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <NavbarPley />
+      </div>
+    );
+  }
+
+
 
 export default App;
