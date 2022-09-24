@@ -11,7 +11,7 @@ require('./config/db.connection')
 
 // Cors
 const cors = require('cors')
-const whitelist = ['http:localhost:3000', 'heroku']
+const whitelist = ['http://localhost:3001', 'heroku']
 const corsOptions = {
     origin: function (origin, callback) {
         if(whitelist.indexOf(origin) !== -1){
