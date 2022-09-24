@@ -2,7 +2,6 @@ import "./App.css";
 import React, { Component } from "react";
 import NavbarPley from "./components/NavbarPley";
 
-
 class App extends Component {
   render() {
     return (
@@ -11,7 +10,6 @@ class App extends Component {
       </div>
     );
   }
-
-
+}
 
 export default App;
