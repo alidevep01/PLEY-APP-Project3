@@ -11,7 +11,7 @@ require('./config/db.connection')
 
 // Cors
 const cors = require('cors')
-const whitelist = ['http://localhost:3000', 'http://localhost:3001', 'heroku']
+const whitelist = ['http://localhost:3000', 'http://localhost:3001', 'https://pleyrestaurants-fe.herokuapp.com']
 const corsOptions = {
     origin: function (origin, callback) {
        if(!origin){//for bypassing postman req with  no origin
