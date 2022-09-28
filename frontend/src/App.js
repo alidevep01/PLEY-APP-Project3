@@ -5,11 +5,13 @@ import ReviewForm from './components/ReviewForm'
 
 let baseURL = ''
 
-if(process.env.NODE_ENV === 'development') {
-  baseURL = 'http://localhost:3000'
-} else {
-  baseURL = 'heroku backend url'
-} 
+// if(process.env.NODE_ENV === 'development') {
+//   baseURL = 'http://localhost:3000'
+// } else {
+//   baseURL = 'heroku backend url'
+// } 
+
+baseURL = `${process.env.REACT_APP_BACKEND_URL}`
 
 console.log('current base url: ', baseURL)
 
