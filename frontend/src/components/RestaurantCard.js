@@ -8,6 +8,7 @@ class RestaurantCard extends Component {
       this.state = {
         baseURL: "https://api.yelp.com/v3/",
         apikey: `apikey${process.env.REACT_APP_API_KEY}`,
+        query: '',
         restaurant: '',
         searchURL: ''
       }
