@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen&display=swap");
+.form {
+  margin-top: 86px;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +40,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* ************************* Footer ******************************* */
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+  color: #bb2d3b;
+  text-align: center;
+  font-family: "Silkscreen", cursive;
+  font-size: 12px;
 }

@@ -1,11 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import "../App.css";
 
-class Footer extends Component {
-    render() { 
-        return (
-            <h1>Footer Page</h1>
-        );
-    }
+function Footer() {
+  const today = new Date();
+  const year = today.getFullYear();
+  return (
+    <div className="footer">
+      <p>Copyright © {year} GA</p>
+    </div>
+  );
 }
- 
+
 export default Footer;
