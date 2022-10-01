@@ -41,14 +41,28 @@ class App extends Component {
       this.setState({reviews: data.reviews})
     })
   }
-
+  
+  addReview = (review) => {
+    const copyReview = [...this.state.reviews]
+    copyReview.unshift(review)
+    this.setState({
+      reviews: copyReview,
+      name: '',
+      score: 0,
+      review: ''
+    })
+  }
+  
  
   render() {
     return (
       <div>
         <NavbarPley />
         <br></br>
-        <ReviewForm />
+        <br></br>
+        <br></br>
+        <br></br>
+        <ReviewForm addReview={this.addReview}/>
       </div>
     );
   }
