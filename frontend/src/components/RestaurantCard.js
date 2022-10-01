@@ -15,7 +15,7 @@ class RestaurantCard extends Component {
                     return (
                     <div>
                       <a href={results.id}><img src={results.image} alt='image'/></a>
-                      <a href={results.id}><h2>{results.name}</h2></a>
+                      <a href={results.id}><h2>{results.id}</h2></a>
                     </div>
                     )
                     

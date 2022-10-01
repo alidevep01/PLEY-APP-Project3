@@ -4,6 +4,14 @@ import NavbarPley from "./components/NavbarPley";
 import RestaurantCard from "./components/RestaurantCard";
 import ReviewForm from "./components/ReviewForm";
 import Footer from "./components/Footer";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom"
 
 let baseURL = "";
 
@@ -84,6 +92,8 @@ class App extends Component {
 
   render() {
     return (
+
+      
       <div>
         <NavbarPley />
         <br></br>
@@ -106,7 +116,7 @@ class App extends Component {
                   value='Search For Recipe'
               />
           </form>
-        <RestaurantCard recipes={this.state.recipe}/>
+        {/* <RestaurantCard recipes={this.state.recipe}/> */}
         <ReviewForm addReview={this.addReview}/>
         <Footer />
       </div>
