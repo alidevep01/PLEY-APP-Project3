@@ -11,11 +11,12 @@ class RestaurantCard extends Component {
                 {/* <img src={this.props.recipes.results}/> */}
                 {this.props.recipes.results.map((results) => {
                     console.log(results.id)
+                    console.log(results)
                     
                     return (
                     <div>
                       <a href={results.id}><img src={results.image} alt='image'/></a>
-                      <a href={results.id}><h2>{results.id}</h2></a>
+                      <a href={results.id}><h2>{results.title}</h2></a>
                     </div>
                     )
                     
