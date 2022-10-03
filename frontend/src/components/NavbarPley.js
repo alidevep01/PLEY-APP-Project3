@@ -66,7 +66,7 @@ class NavbarPley extends Component {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
                 <Form onSubmit={this.handleSubmit} className="d-flex">
-                  <Form.Control id="recipe" type="text" placeholder="Cuisine Type" className="me-2" aria-label="Search" onChange={this.handleChange} />
+                  <Form.Control id="recipe" type="text" placeholder="Cuisine Type" className="me-2" aria-label="Search" onChange={this.handleChange} value={this.state.recipe} />
                   {/* <Form.Control type="search" placeholder="Location" className="me-2" aria-label="Search" /> */}
                   <Button variant="danger" type="submit">
                     <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/search--v1.png" />
