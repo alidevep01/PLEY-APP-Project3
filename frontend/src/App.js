@@ -4,14 +4,7 @@ import NavbarPley from "./components/NavbarPley";
 import RestaurantCard from "./components/RestaurantCard";
 import ReviewForm from "./components/ReviewForm";
 import Footer from "./components/Footer";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route, Link, useRouteMatch, useParams } from "react-router-dom";
 
 let baseURL = "";
 
@@ -26,33 +19,29 @@ baseURL = `${process.env.REACT_APP_BACKEND_URL}`;
 console.log("current base url: ", baseURL);
 
 class App extends Component {
-  constructor(props){
-      super(props)
-      this.state = {
-      }
-  }
-  
-  addReview = (review) => {
-    const copyReview = [...this.state.reviews]
-    copyReview.unshift(review)
-    this.setState({
-      reviews: copyReview,
-      name: '',
-      score: 0,
-      review: ''
-    })
+  constructor(props) {
+    super(props);
+    this.state = {};
   }
 
+  addReview = (review) => {
+    const copyReview = [...this.state.reviews];
+    copyReview.unshift(review);
+    this.setState({
+      reviews: copyReview,
+      name: "",
+      score: 0,
+      review: "",
+    });
+  };
+
   render() {
-    return (      
+    return (
       <div>
         <NavbarPley />
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
+        {/* <RestaurantCard recipes={this.state.recipe} /> */}
         <h1>Recipe</h1>
-        <ReviewForm addReview={this.addReview}/>
+        <ReviewForm addReview={this.addReview} />
         <Footer />
       </div>
     );
