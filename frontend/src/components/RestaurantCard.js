@@ -10,7 +10,7 @@ class RestaurantCard extends Component {
       console.log("null");
     } else {
       return (
-        <div>
+        <div className="recipeCard">
           <Row xs={1} md={2} lg={3} xl={4} xll={5} className="g-4">
             {this.props.recipes.results.map((results) => {
               console.log(results.id);

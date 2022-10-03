@@ -37,13 +37,15 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <NavbarPley />
-        {/* <RestaurantCard recipes={this.state.recipe} /> */}
-        <h1>Recipe</h1>
-        <ReviewForm addReview={this.addReview} />
+      <>
+        <div className="mainContainer">
+          <NavbarPley />
+          {/* <RestaurantCard recipes={this.state.recipe} /> */}
+          <h1>Recipe</h1>
+          <ReviewForm addReview={this.addReview} />
+        </div>
         <Footer />
-      </div>
+      </>
     );
   }
 }

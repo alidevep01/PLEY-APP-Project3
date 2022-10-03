@@ -3,8 +3,14 @@ html,
 body {
   max-width: 100%;
   overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+.mainContainer {
   margin: 100px 50px;
 }
+
 .form {
   margin-top: 86px;
 }
@@ -51,7 +57,7 @@ body {
 /* ************************* Footer ******************************* */
 
 .footer {
-  position: fixed;
+  position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
