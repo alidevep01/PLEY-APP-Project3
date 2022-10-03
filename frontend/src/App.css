@@ -3,7 +3,7 @@ html,
 body {
   max-width: 100%;
   overflow-x: hidden;
-  margin: 100px;
+  margin: 100px 50px;
 }
 .form {
   margin-top: 86px;
