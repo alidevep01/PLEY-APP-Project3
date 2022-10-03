@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Silkscreen&display=swap");
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 .form {
   margin-top: 86px;
 }
