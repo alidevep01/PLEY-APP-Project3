@@ -21,7 +21,7 @@ class RestaurantCard extends Component {
                       <Card.Img variant="top" src={results.image} />
                     </a>
                     <Card.Body>
-                      <Card.Title>{results.title}</Card.Title>
+                      <Card.Title style={{ height: "88px" }}>{results.title}</Card.Title>
                       <Card.Text></Card.Text>
                     </Card.Body>
                   </Card>
