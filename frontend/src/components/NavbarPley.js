@@ -15,11 +15,20 @@ class NavbarPley extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      baseURL: `https://api.spoonacular.com/recipes/complexSearch`,
-      apiKey: `?apiKey=a5bc09310d4c4673a21e07e15aa11be6&`,
+      baseURL: this.props.baseURL,
+      apiKey: this.props.apiKey,
       recipe: "",
     };
   }
+
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     baseURL: `https://api.spoonacular.com/food/search`,
+  //     apiKey: `?apiKey=a5bc09310d4c4673a21e07e15aa11be6&`,
+  //     recipe: "",
+  //   };
+  // }
 
   handleChange = (event) => {
     event.preventDefault();
@@ -35,7 +44,7 @@ class NavbarPley extends Component {
     event.preventDefault();
     this.setState(
       {
-        searchURL: this.state.baseURL + this.state.apiKey + "cuisine=" + this.state.recipe,
+        searchURL: this.state.baseURL + this.state.apiKey + "cuisine=" + this.state.recipe + '&number=12',
       },
       () => {
         fetch(this.state.searchURL)

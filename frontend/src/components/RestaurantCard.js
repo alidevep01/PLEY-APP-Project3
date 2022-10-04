@@ -18,7 +18,7 @@ class RestaurantCard extends Component {
               return (
                 <Col>
                   <Card>
-                    <a href={results.id}>
+                    <a href='recipe'>
                       <Card.Img variant="top" src={results.image} />
                     </a>
                     <Card.Body>
