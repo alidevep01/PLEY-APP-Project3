@@ -5,6 +5,7 @@ import RestaurantCard from "./components/RestaurantCard";
 import ReviewForm from "./components/ReviewForm";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route, Link, useRouteMatch, useParams } from "react-router-dom";
+import ShowPage from "./pages/show";
 
 let baseURL = "";
 
@@ -21,7 +22,11 @@ console.log("current base url: ", baseURL);
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      baseURL: `https://api.spoonacular.com/recipes/complexSearch`,
+      apiKey: `?apiKey=a5bc09310d4c4673a21e07e15aa11be6&`,
+      recipe: "",
+    };
   }
 
   addReview = (review) => {
@@ -39,9 +44,14 @@ class App extends Component {
     return (
       <>
         <div className="mainContainer">
-          <NavbarPley />
+          <NavbarPley recipes={this.state.recipe} baseURL={this.state.baseURL} apiKey={this.state.apiKey}/>
           {/* <RestaurantCard recipes={this.state.recipe} /> */}
           <h1>Recipe</h1>
+          {/* <Routes>
+            <Route path="/recipe">
+              <ShowPage />
+            </Route>
+          </Routes> */}
           <ReviewForm addReview={this.addReview} />
         </div>
         <Footer />
