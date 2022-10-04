@@ -72,3 +72,22 @@ body {
   padding: 10px 5px 0;
   margin-top: 16px;
 }
+
+/* ************************ Star Rating ***********************************/
+
+.star-rating {
+  font-size: 100px;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.on {
+  color: #bb2d3b;
+}
+.off {
+  color: #ccc;
+}

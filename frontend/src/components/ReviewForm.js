@@ -4,6 +4,7 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
+import StarRating from "./StarRating";
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -57,22 +58,8 @@ class ReviewForm extends React.Component {
             <Form.Control type="text" placeholder="Your Name" onChange={this.handleChange} value={this.state.name} />
           </FloatingLabel>
         </Form.Group>
-        {/* ******************* Rating Dropdown ******************************** */}
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Dropdown>
-            <Dropdown.Toggle variant="warning" id="dropdown-basic">
-              Rating
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              <Dropdown.Item>1</Dropdown.Item>
-              <Dropdown.Item>2</Dropdown.Item>
-              <Dropdown.Item>3</Dropdown.Item>
-              <Dropdown.Item>4</Dropdown.Item>
-              <Dropdown.Item>5</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </Form.Group>
+        {/* ******************* Star Rating ******************************** */}
+        <StarRating />
         {/* ******************* Comments Floating Label ******************************** */}
         <Form.Group className="mb-3" controlId="floatingTextarea2">
           <FloatingLabel controlId="floatingTextarea2" label="Comments">
