@@ -51,7 +51,7 @@ class ReviewForm extends React.Component {
     console.log("form is working");
     return (
       <form onSubmit={this.handleSubmit}>
-        <h1>Your Review</h1>
+        <h1>Add a Review</h1>
         {/* ******************* Name Floating Label ******************************** */}
         <Form.Group className="mb-3" controlId="floatingInput">
           <FloatingLabel controlId="floatingInput" label="Your Name" className="mb-3">
