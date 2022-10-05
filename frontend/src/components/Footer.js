@@ -6,7 +6,8 @@ function Footer() {
   const year = today.getFullYear();
   return (
     <div className="footer">
-      <p>Copyright © {year} GA</p>
+      <p className="footerP">Copyright © {year} GA</p>
+      <p>Developed by Mohammad, Drew & Shiv</p>
     </div>
   );
 }
