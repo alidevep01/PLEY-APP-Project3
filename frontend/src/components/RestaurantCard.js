@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 class RestaurantCard extends Component {
   render() {
+    console.log('cardmap', this.props.recipes.results)
     if (this.props.recipes.results == null) {
       console.log("null");
     } else {
@@ -19,12 +20,12 @@ class RestaurantCard extends Component {
               return (
                 <Col>
                   <Card>
-                    <Link to={'/recipe/' + results.id}>
+                    {/* <Link to={'/recipe/' + results.id}>
                         <Card.Img variant="top" src={results.image} />
-                    </Link>
-                    {/* <a href={'/recipe/' + results.id}>
+                    </Link> */}
+                    <a href={'/recipe/' + results.id}>
                       <Card.Img variant="top" src={results.image} />
-                    </a> */}
+                    </a>
                     <Card.Body>
                       <Card.Title style={{ height: "88px" }}>{results.title}</Card.Title>
                       <Card.Text></Card.Text>
