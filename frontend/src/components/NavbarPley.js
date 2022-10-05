@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import RestaurantCard from "./RestaurantCard";
+import RecipeCardId from "./RecipeCardId";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -93,6 +94,7 @@ class NavbarPley extends Component {
           </Container>
         </Navbar>
         <RestaurantCard recipes={this.state.recipe} />
+        <RecipeCardId recipes={this.state.recipe} />
       </div>
     );
   }
