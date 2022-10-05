@@ -68,7 +68,7 @@ class NavbarPley extends Component {
       <div>
         <Navbar bg="light" expand="lg" fixed="top">
           <Container>
-            <Navbar.Brand href="#home">
+            <Navbar.Brand href="/">
               {" "}
               <img alt="" src="https://iili.io/s3jy11.md.png" width="60" height="60" className="d-inline-block align-top" />
             </Navbar.Brand>

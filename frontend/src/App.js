@@ -4,8 +4,9 @@ import NavbarPley from "./components/NavbarPley";
 import RestaurantCard from "./components/RestaurantCard";
 import ReviewForm from "./components/ReviewForm";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Routes, Route, Link, useRouteMatch, useParams } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Outlet, Link, useRouteMatch, useParams } from "react-router-dom";
 import ShowPage from "./pages/ShowPage";
+import RecipeCardId from './components/RecipeCardId'
 
 let baseURL = "";
 
@@ -49,7 +50,7 @@ class App extends Component {
           <h1>Recipe</h1>
           <Routes>
             <Route path="/recipe" element={<ShowPage recipes={this.state.recipe}/>}>
-              <Route path={"/recipe/:id"} element={<RestaurantCard recipes={this.state.recipe}/>}/>
+              <Route path=":id" element={<RecipeCardId recipes={this.state.recipe}/>}/>
             </Route>
             <Route path="/reviews" element={<Reviews/>}></Route>
           </Routes>
