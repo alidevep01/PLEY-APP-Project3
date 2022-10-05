@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import "../App.css";
+import { Link } from "react-router-dom";
 
 class RestaurantCard extends Component {
   render() {
@@ -18,9 +19,12 @@ class RestaurantCard extends Component {
               return (
                 <Col>
                   <Card>
-                    <a href='recipe'>
+                    <Link to={'/recipe/' + results.id}>
+                        <Card.Img variant="top" src={results.image} />
+                    </Link>
+                    {/* <a href={'/recipe/' + results.id}>
                       <Card.Img variant="top" src={results.image} />
-                    </a>
+                    </a> */}
                     <Card.Body>
                       <Card.Title style={{ height: "88px" }}>{results.title}</Card.Title>
                       <Card.Text></Card.Text>
