@@ -11,10 +11,10 @@ class RecipeCardId extends Component {
       if (this.props.recipes.results == null) {
         console.log("null");
       } else {
-        console.log(this.state.recipes)
+        console.log(this.props.recipes)
         return (
           <div className="recipeCard">
-            <h1>{this.props.recipes.title}</h1>
+            <h1>{this.props.recipes.results.title}</h1>
           </div>
         );
       }
