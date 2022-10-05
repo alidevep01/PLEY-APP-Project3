@@ -5,7 +5,7 @@ import RestaurantCard from "./components/RestaurantCard";
 import ReviewForm from "./components/ReviewForm";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route, Link, useRouteMatch, useParams } from "react-router-dom";
-import ShowPage from "./pages/show";
+import ShowPage from "./pages/ShowPage";
 
 let baseURL = "";
 
@@ -47,17 +47,42 @@ class App extends Component {
           <NavbarPley recipes={this.state.recipe} baseURL={this.state.baseURL} apiKey={this.state.apiKey}/>
           {/* <RestaurantCard recipes={this.state.recipe} /> */}
           <h1>Recipe</h1>
-          {/* <Routes>
-            <Route path="/recipe">
-              <ShowPage />
+          <Routes>
+            <Route path="/recipe" element={<ShowPage recipes={this.state.recipe}/>}>
+              <Route path={"/recipe/:id"} element={<RestaurantCard recipes={this.state.recipe}/>}/>
             </Route>
-          </Routes> */}
-          <ReviewForm addReview={this.addReview} />
+            <Route path="/reviews" element={<Reviews/>}></Route>
+          </Routes>
+          {/* <ReviewForm addReview={this.addReview} /> */}
         </div>
         <Footer />
       </>
     );
   }
+}
+
+function Recipes() {
+  return (
+    <main>
+      <h2>This Is My Recipe</h2>
+    </main>
+  )
+}
+
+function RecipeId() {
+  return(
+    <main>
+      <h2>This is my specific recipe</h2>
+    </main>
+  )
+}
+
+function Reviews() {
+  return(
+    <main>
+      <ReviewForm addReview={App.addReview}/>
+    </main>
+  )
 }
 
 export default App;
