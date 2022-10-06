@@ -61,8 +61,13 @@ class NavbarPley extends Component {
           );
       }
     );
-    console.log(this.state.recipe);
+    console.log(this.state.recipe)
+    console.log('eventtarget:',event.target.id);
   };
+
+  
+
+  
 
   render() {
     return (
@@ -98,6 +103,10 @@ class NavbarPley extends Component {
       </div>
     );
   }
+}
+
+function recipeClick(){
+
 }
 
 export default NavbarPley;
