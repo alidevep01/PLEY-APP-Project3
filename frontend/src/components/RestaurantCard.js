@@ -6,10 +6,33 @@ import "../App.css";
 import { Link } from "react-router-dom";
 
 class RestaurantCard extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            recipes: {
+                id: '',
+                image: '',
+                title: '',
+                imageType: '',
+                isSelected: false
+            },
+        }
+    }
+
+    // recipeClick(selectedRecipe){
+    //     const { allRecipes } = this.state
+    //     console.log('recipeclick:',selectedRecipe.target.id)
+    //     this.setState({
+    //         recipes: this.props.recipes.map(recipe => ({
+    //             isSelected: (recipe.id === selectedRecipe) ? !recipe.isSelected : recipe.isSelected
+    //         }))
+    //     })
+    // }
+
   render() {
     console.log("cardmap", this.props.recipes.results);
     if (this.props.recipes.results == null) {
-      console.log("null");
+      console.log("recipes null");
     } else {
       return (
         <div className="recipeCard">
@@ -24,7 +47,7 @@ class RestaurantCard extends Component {
                         <Card.Img variant="top" src={results.image} />
                     </Link> */}
                     <a href={"/recipe/" + results.id}>
-                      <Card.Img variant="top" src={results.image} />
+                      <Card.Img variant="top" src={results.image} onClick={this.recipeClick} />
                     </a>
                     <Card.Body>
                       <Card.Title style={{ height: "88px" }}>{results.title}</Card.Title>

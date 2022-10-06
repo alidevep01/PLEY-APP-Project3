@@ -13,6 +13,7 @@ class ReviewForm extends React.Component {
       name: "",
       score: 0,
       review: "",
+      reviewId: this.props.recipes
     };
   }
 
@@ -31,6 +32,7 @@ class ReviewForm extends React.Component {
         name: this.state.name,
         score: this.state.score,
         review: this.state.review,
+        reviewId: this.state.reviewId
       }),
       headers: {
         "Content-Type": "application/json",
@@ -49,6 +51,7 @@ class ReviewForm extends React.Component {
 
   render() {
     console.log("form is working");
+    console.log('reviewId:', this.state.recipes)
     return (
       <form onSubmit={this.handleSubmit}>
         <h1>Add a Review</h1>
