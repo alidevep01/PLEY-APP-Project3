@@ -10,6 +10,7 @@ class RecipeCardId extends Component {
   constructor(props){
     super(props)
     this.state = {
+      recipes: '',
       selectedRecipe: {}
     }
   }
@@ -31,7 +32,7 @@ class RecipeCardId extends Component {
   //   });
   // }
 
-
+  let 
     render() {
       console.log('cardid:', this.props.selectedRecipe)
       if (this.props.recipes.results == null) {
@@ -41,15 +42,10 @@ class RecipeCardId extends Component {
         return (
 
           <div className="recipeCard">
-            <h1>{this.props.recipes.results.title}</h1>
+            {this.props.recipes.map(selectedRecipe => selectedRecipe.results === selectedRecipe.target.results)}
           </div>
         );
       }
-      const recipeShow = (results) => {
-        console.log('recipeshow: ',this.props.recipes.results)
-      }
-
-      recipeShow()
     }
   }
 

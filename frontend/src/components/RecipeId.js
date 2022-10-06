@@ -1,0 +1,37 @@
+import { Component, useState } from "react";
+import RestaurantCard from "./RestaurantCard";
+import NavbarPley from "./NavbarPley";
+
+class RecipeId extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            baseURL: this.props.baseURL,
+            apiKey: this.props.apiKey,
+            recipe: '',
+            selectedRecipe: this.props.selectedRecipeId
+        };
+    }
+    render() { 
+        return ( 
+            <div>
+                <h1>I am Recipe ID</h1>
+                {console.log('recipeId:', this.state.selectedRecipe)}
+            </div> 
+         );
+    }
+}
+ 
+export default RecipeId;
+
+// const RecipeId = () => {
+//     const [item] = useState()
+//     return (
+//         <div>
+//             <h1>I am Recipe ID</h1>
+//             {console.log(this.props.selectedRecipe)}
+//         </div>
+//     )
+// }
+
+// export default RecipeId
