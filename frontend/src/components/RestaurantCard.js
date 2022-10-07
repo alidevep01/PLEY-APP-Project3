@@ -37,15 +37,17 @@ class RestaurantCard extends Component {
     }
 
   render() {
-    // let selectedRecipe = this.props.recipes.results.filter(recipeResults => recipeResults.id === this.recipes.props)
+    
 
     
     console.log("cardmap", this.props.recipes.results);
     if (this.props.recipes.results == null) {
-      console.log("recipes null");
+      console.log("recipes are null");
     } else {
       return (
         <div className="recipeCard">
+        {recipeId(this.props.recipes)}
+        {selectRecipe(this.props.recipes)}
           <Row xs={1} md={2} lg={3} xl={4} xll={5} className="g-4">
             {this.props.recipes.results.map((results) => {
               console.log(results.id);
@@ -57,7 +59,7 @@ class RestaurantCard extends Component {
                         <Card.Img variant="top" src={results.image} />
                     </Link> */}
                     <a href={"/recipe/" + results.id}>
-                      <Card.Img variant="top" src={results.image} onClick={() => this.recipeClick(results)}/>
+                      <Card.Img variant="top" src={results.image} onClick={() => selectRecipe(results.id)}/>
                     </a>
                     <Card.Body>
                       <Card.Title style={{ height: "88px" }}>{results.title}</Card.Title>
@@ -68,13 +70,48 @@ class RestaurantCard extends Component {
               );
             })}
           </Row>
-          {console.log('selectedRecipeId:', this.props.recipes.id)}
-          <RecipeId selectedRecipeId={this.state.selectedRecipe} />
+          {/* {console.log('selectedRecipeId:', this.props.recipes.id)} */}
+          <RecipeId selectedRecipeId={this.props.recipes.results} />
         </div>
       );
     }
   }
 }
 
+// write function for recipeId
+// create variable in function to receive single recipe
+// pass variable as single prop
+// export variable as prop into id component
+// import into recipeId
+
+const recipeId = (props) => {
+    console.log(props)
+    return(
+        <div>
+            {props.results.map((results) => {
+                console.log('recipeIdResults:', results)
+            })}
+            {/* map function here */}
+            {/* another function below to filter this result */}
+        </div>
+    )
+}
+export function selectRecipe(props) {
+    // console.log('functionfilter:', props.results)
+    const selectedRecipe = props.results.filter(recipe => recipe.results.includes(this.props.recipe))
+    console.log('filteredrecipe', selectedRecipe)
+    return(
+        <div>
+            {}
+        </div>
+    )
+}
+
+// let selectedRecipes = recipeId().filter(selectedRecipe => selectedRecipe.title = this.props.recipes)
+
+// console.log(selectedRecipes)
+
+// recipeId()
+ 
 
 export default RestaurantCard;

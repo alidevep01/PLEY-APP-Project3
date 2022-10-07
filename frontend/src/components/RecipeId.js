@@ -1,6 +1,6 @@
 import { Component, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
-import NavbarPley from "./NavbarPley";
+import { selectRecipe } from "./RestaurantCard";
+
 
 class RecipeId extends Component {
     constructor(props) {
@@ -13,14 +13,18 @@ class RecipeId extends Component {
         };
     }
     render() { 
+        selectRecipe()
         return ( 
             <div>
                 <h1>I am Recipe ID</h1>
                 {console.log('recipeId:', this.state.selectedRecipe)}
             </div> 
          );
+         
     }
 }
+
+
  
 export default RecipeId;
 

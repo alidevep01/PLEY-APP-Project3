@@ -16,7 +16,7 @@ class RecipeCardId extends Component {
   }
 
   // create function to find single recipe
-    //  on index page onClick() to find object in array of results
+    // on index page onClick() to find object in array of results
     // map through array
     // if else statement to show the clicked object
     // set state of object so we can prop it indiviually to other components
