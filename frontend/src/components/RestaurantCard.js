@@ -6,28 +6,20 @@ import "../App.css";
 import { Link } from "react-router-dom";
 import RecipeId from "./RecipeId";
 
-
-
-
 class RestaurantCard extends Component {
     constructor(props){
         super(props)
         this.state = {
-            recipes: {
-                id: '',
-                image: '',
-                title: '',
-                imageType: '',
-                isSelected: false
-            },
-            selectedRecipe: {},
+            recipes: {},
+            selectedRecipe: '',
             recipeArray: this.props.recipes
         }
     }
 
     recipeClick(event) {
         console.log('clickedRecipe:', event.target)
-        // this.setState({ selectedRecipe: event.target})
+        // return arr.findIndex(event => event.target.id === id)
+        this.setState({selectedRecipe: event.target})
             // (event.target.id === this.props.recipes.results.id) && (console.log(this.props.recipes))
     }
 
@@ -42,17 +34,17 @@ class RestaurantCard extends Component {
         {/* {RecipeIdFunction(this.props.recipes)} */}
         
         {/* {selectRecipe(this.props.recipes)} */}
+        {RecipeArray(this.props.recipes.results)}
           <Row xs={1} md={2} lg={3} xl={4} xll={5} className="g-4">
-          {RecipeArray(this.props.recipes.results)}
             {this.props.recipes.results.map((results) => {
                 
-              console.log(results.id);
+              console.log('results:',results);
             //   console.log('results:', results);
               return (
                 <Col>
                   <Card>
                     <Link to={'/recipe/' + results.id} onClick={this.recipeClick}>
-                        <Card.Img variant="top" src={results.image} id={results.id} title={results.title} image={results.image}/>
+                        <Card.Img variant="top" src={results.image} id={results.id} title={results.title} image={results.image} value={results.id}/>
                     </Link>
                     {/* <a href={"/recipe/" + results.id}>
                       <Card.Img variant="top" src={results.image} />
@@ -67,7 +59,7 @@ class RestaurantCard extends Component {
             })}
           </Row>
           {/* {console.log('selectedRecipeId:', this.props.recipes.id)} */}
-          <RecipeId selectedRecipeId={this.props.recipes.results} 
+          <RecipeId recipes={this.state.selectedRecipe} 
           />
           {/* {console.log('recipeArray:', this.props.recipeArray)} */}
         </div>

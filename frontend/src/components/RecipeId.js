@@ -1,4 +1,4 @@
-import { Component, useState } from "react";
+import React, { Component, useState, } from "react";
 import { selectRecipe } from "./RestaurantCard";
 
 
@@ -9,7 +9,8 @@ class RecipeId extends Component {
             baseURL: this.props.baseURL,
             apiKey: this.props.apiKey,
             recipe: '',
-            selectedRecipe: this.props.selectedRecipeId
+            recipes: this.props.recipes,
+            selectedRecipe: this.props.selectedRecipe
         };
     }
     render() { 
