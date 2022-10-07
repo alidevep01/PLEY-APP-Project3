@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route, Outlet, Link, useRouteMatch, useParams } from "react-router-dom";
 import ShowPage from "./pages/ShowPage";
 import RecipeCardId from './components/RecipeCardId'
+import RecipeId from './components/RecipeId'
 
 let baseURL = "";
 
@@ -20,13 +21,16 @@ baseURL = `${process.env.REACT_APP_BACKEND_URL}`;
 
 console.log("current base url: ", baseURL);
 
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       baseURL: `https://api.spoonacular.com/recipes/complexSearch`,
       apiKey: `?apiKey=a5bc09310d4c4673a21e07e15aa11be6&`,
+      // apiKey: `?apiKey=525d936c594d4320af982f3dc9d49a4e&`,
       recipe: "",
+      selectedRecipe: ''
     };
   }
 
@@ -50,11 +54,13 @@ class App extends Component {
           <h1>Recipe</h1>
           <Routes>
             <Route path="/recipe" element={<ShowPage recipes={this.state.recipe}/>}>
-              <Route path=":id" element={<RecipeCardId recipes={this.state.recipe}/>}/>
+              <Route path=":id" element={<RecipeId selectedRecipes={this.state.recipe}/>}/>
             </Route>
             <Route path="/reviews" element={<Reviews/>}></Route>
+            <Route path="/" element={<RestaurantCard recipes={this.state.recipe}/>}/>
           </Routes>
           {/* <ReviewForm addReview={this.addReview} /> */}
+        {/* <RecipeId recipes={this.state.recipe}/> */}
         </div>
         <Footer />
       </>
@@ -70,13 +76,13 @@ function Recipes() {
   )
 }
 
-function RecipeId() {
-  return(
-    <main>
-      <h2>This is my specific recipe</h2>
-    </main>
-  )
-}
+// function RecipeId() {
+//   return(
+//     <main>
+//       <h2>This is my specific recipe</h2>
+//     </main>
+//   )
+// }
 
 function Reviews() {
   return(

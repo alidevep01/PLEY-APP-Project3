@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import RestaurantCard from "./RestaurantCard";
 import RecipeCardId from "./RecipeCardId";
+import RecipeId from "./RecipeId";
+// import RecipeMap from './RecipeMap'
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -19,7 +21,8 @@ class NavbarPley extends Component {
     this.state = {
       baseURL: this.props.baseURL,
       apiKey: this.props.apiKey,
-      recipe: "",
+      recipe: '',
+      selectedRecipe: ''
     };
   }
 
@@ -43,6 +46,7 @@ class NavbarPley extends Component {
   };
 
   handleSubmit = (event) => {
+    console.log('handleSubmit', this.state.recipe)
     event.preventDefault();
     this.setState(
       {
@@ -62,12 +66,16 @@ class NavbarPley extends Component {
       }
     );
     console.log(this.state.recipe)
-    console.log('eventtarget:',event.target.id);
+    console.log('eventtarget:',event.target);
   };
 
-  
-
-  
+  handleClick = (event) => {
+    event.preventDefault()
+    this.setState({
+      selectedRecipe: this.props.recipe
+    })
+    console.log('handleclick:', this.props.recipe.results.id)
+  }
 
   render() {
     return (
@@ -85,7 +93,7 @@ class NavbarPley extends Component {
                   <Form.Control id="recipe" type="text" placeholder="Cuisine Type" className="me-2" aria-label="Search" onChange={this.handleChange} value={this.state.recipe} />
                   {/* <Form.Control type="search" placeholder="Location" className="me-2" aria-label="Search" /> */}
                   <Button variant="danger" type="submit">
-                    <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/search--v1.png" />
+                    <img src="https://img.icons8.com/ios-glyphs/25/FFFFFF/search--v1.png" onSubmit={this.handleClick}/>
                   </Button>
                 </Form>
                 <Nav.Link href="#home"></Nav.Link>
@@ -99,14 +107,12 @@ class NavbarPley extends Component {
           </Container>
         </Navbar>
         <RestaurantCard recipes={this.state.recipe} />
-        <RecipeCardId recipes={this.state.recipe} />
+        {/* <RecipeMap recipes={this.state.recipe}/> */}
+        {/* <RecipeId selectedRecipeId={this.state.selectedRecipe} /> */}
       </div>
     );
   }
 }
 
-function recipeClick(){
-
-}
 
 export default NavbarPley;
