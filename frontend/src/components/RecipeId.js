@@ -13,7 +13,7 @@ class RecipeId extends Component {
         };
     }
     render() { 
-        selectRecipe()
+        // selectRecipe()
         return ( 
             <div>
                 <h1>I am Recipe ID</h1>
