@@ -27,8 +27,8 @@ class App extends Component {
     super(props);
     this.state = {
       baseURL: `https://api.spoonacular.com/recipes/complexSearch`,
-      // apiKey: `?apiKey=a5bc09310d4c4673a21e07e15aa11be6&`,
-      apiKey: `?apiKey=525d936c594d4320af982f3dc9d49a4e&`,
+      apiKey: `?apiKey=a5bc09310d4c4673a21e07e15aa11be6&`,
+      // apiKey: `?apiKey=525d936c594d4320af982f3dc9d49a4e&`,
       recipe: "",
       selectedRecipe: ''
     };

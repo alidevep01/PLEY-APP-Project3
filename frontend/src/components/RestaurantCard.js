@@ -11,15 +11,15 @@ class RestaurantCard extends Component {
         super(props)
         this.state = {
             recipes: {},
-            selectedRecipe: '',
+            selectedRecipe: {},
             recipeArray: this.props.recipes
         }
     }
 
     recipeClick(event) {
-        console.log('clickedRecipe:', event.target)
+        console.log('clickedRecipe:', event)
         // return arr.findIndex(event => event.target.id === id)
-        this.setState({selectedRecipe: event.target})
+        // this.setState({selectedRecipe: event.target})
             // (event.target.id === this.props.recipes.results.id) && (console.log(this.props.recipes))
     }
 
@@ -43,7 +43,7 @@ class RestaurantCard extends Component {
               return (
                 <Col>
                   <Card>
-                    <Link to={'/recipe/' + results.id} onClick={this.recipeClick}>
+                    <Link to={'/recipe/' + results.id} onClick={this.recipeClick} state={results}>
                         <Card.Img variant="top" src={results.image} id={results.id} title={results.title} image={results.image} value={results.id}/>
                     </Link>
                     {/* <a href={"/recipe/" + results.id}>
@@ -59,8 +59,7 @@ class RestaurantCard extends Component {
             })}
           </Row>
           {/* {console.log('selectedRecipeId:', this.props.recipes.id)} */}
-          <RecipeId recipes={this.state.selectedRecipe} 
-          />
+          <RecipeId recipes={this.state.selectedRecipe} />
           {/* {console.log('recipeArray:', this.props.recipeArray)} */}
         </div>
       );
