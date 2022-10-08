@@ -2,12 +2,33 @@ import React, { useState } from "react";
 import EachReview from "./EachReview";
 
 function Reviews({ list }) {
+  const [reviews, deleteReviews] = useState("");
   function deleteReview(id) {
     // setReviews(
     //   list.filter((item) => {
     //     return id !== item.id;
     //   })
     // );
+  }
+
+  handleDeleteReview = (id) => {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/pley/${window.location.pathname.split("/")[2]}`, {
+      method: 'DELETE',
+      headers: {
+        "Content-Type": "application/json",
+      },
+    
+    }).then( res => {
+      console.log('id:',reviews)
+      const copyReviews = [...list]
+      const findIndex = list.findIndex(
+        (review) => review._id === id 
+      )
+      copyReviews.splice(findIndex, 1)
+      // this.setState({ reviews: copyReviews})
+
+    })
+    console.log(id)
   }
 
   return (
@@ -18,6 +39,14 @@ function Reviews({ list }) {
           })
         : "No Reviews"}
     </div>
+  );
+}
+
+export function handleDeleteReview() {
+  return (
+    <main>
+      <EachReview handleDeleteReview={Reviews.handleDeleteReview} />
+    </main>
   );
 }
 
