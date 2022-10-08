@@ -1,3 +1,3 @@
 module.exports = {
-    pley: require('./pley.routes.js')
-}
+  pley: require("./pley.routes.js"),
+};

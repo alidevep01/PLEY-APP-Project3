@@ -6,7 +6,7 @@ import ReviewForm from "./components/ReviewForm";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route, Outlet, Link, useRouteMatch, useParams } from "react-router-dom";
 import ShowPage from "./pages/ShowPage";
-import RecipeCardId from './components/RecipeCardId'
+import RecipeCardId from "./components/RecipeCardId";
 
 let baseURL = "";
 
@@ -44,19 +44,23 @@ class App extends Component {
   render() {
     return (
       <>
-        <div className="mainContainer">
-          <NavbarPley recipes={this.state.recipe} baseURL={this.state.baseURL} apiKey={this.state.apiKey}/>
-          {/* <RestaurantCard recipes={this.state.recipe} /> */}
-          <h1>Recipe</h1>
-          <Routes>
-            <Route path="/recipe" element={<ShowPage recipes={this.state.recipe}/>}>
-              <Route path=":id" element={<RecipeCardId recipes={this.state.recipe}/>}/>
-            </Route>
-            <Route path="/reviews" element={<Reviews/>}></Route>
-          </Routes>
-          {/* <ReviewForm addReview={this.addReview} /> */}
-        </div>
-        <Footer />
+        <Router>
+          <div className="mainContainer">
+            <NavbarPley recipes={this.state.recipe} baseURL={this.state.baseURL} apiKey={this.state.apiKey} />
+            {/* <RestaurantCard recipes={this.state.recipe} /> */}
+            <h1>Recipe</h1>
+            <switch>
+              <Routes>
+                <Route path="/recipe" element={<ShowPage recipes={this.state.recipe} />}>
+                  <Route path=":id" element={<RecipeCardId recipes={this.state.recipe} />} />
+                </Route>
+                <Route path="/reviews" element={<Reviews />}></Route>
+              </Routes>
+            </switch>
+            {/* <ReviewForm addReview={this.addReview} /> */}
+          </div>
+          <Footer />
+        </Router>
       </>
     );
   }
@@ -67,23 +71,23 @@ function Recipes() {
     <main>
       <h2>This Is My Recipe</h2>
     </main>
-  )
+  );
 }
 
 function RecipeId() {
-  return(
+  return (
     <main>
       <h2>This is my specific recipe</h2>
     </main>
-  )
+  );
 }
 
 function Reviews() {
-  return(
+  return (
     <main>
-      <ReviewForm addReview={App.addReview}/>
+      <ReviewForm addReview={App.addReview} />
     </main>
-  )
+  );
 }
 
 export default App;

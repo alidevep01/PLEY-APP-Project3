@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+/* Components */
 import RestaurantCard from "./RestaurantCard";
 import RecipeCardId from "./RecipeCardId";
+/* React-bootstrap */
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -9,6 +11,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
+/* React Router */
 import { Link } from "react-router-dom";
 
 // let recipe = "";
@@ -46,7 +49,7 @@ class NavbarPley extends Component {
     event.preventDefault();
     this.setState(
       {
-        searchURL: this.state.baseURL + this.state.apiKey + "cuisine=" + this.state.recipe + '&number=12',
+        searchURL: this.state.baseURL + this.state.apiKey + "cuisine=" + this.state.recipe + "&number=12",
       },
       () => {
         fetch(this.state.searchURL)
@@ -61,13 +64,9 @@ class NavbarPley extends Component {
           );
       }
     );
-    console.log(this.state.recipe)
-    console.log('eventtarget:',event.target.id);
+    console.log(this.state.recipe);
+    console.log("eventtarget:", event.target.id);
   };
-
-  
-
-  
 
   render() {
     return (
@@ -105,8 +104,6 @@ class NavbarPley extends Component {
   }
 }
 
-function recipeClick(){
-
-}
+function recipeClick() {}
 
 export default NavbarPley;

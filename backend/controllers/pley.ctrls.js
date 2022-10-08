@@ -11,6 +11,17 @@ const index = (req, res) => {
   });
 };
 
+// review index route
+const getById = (req, res) => {
+  db.Review.find({ recipeId: req.params.id }, (error, reviews) => {
+    if (error) return res.status(404).json({ error: error.message });
+    return res.status(200).json({
+      reviews,
+      requestedAt: new Date().toLocaleString(),
+    });
+  });
+};
+
 // review create route
 const create = (req, res) => {
   db.Review.create(req.body, (error, createReview) => {
@@ -22,31 +33,31 @@ const create = (req, res) => {
 // destroy route
 const destroy = (req, res) => {
   db.Review.findByIdAndDelete(req.params.id, (error, deletedReview) => {
-    if(!deletedReview) return res.status(400).json({error:
-      'Review not found'})
-    if(error) return res.status(400).json({error: error.message})
-    return res.status(200).json({message: `Review ${deletedReview.name} deleted successfully`})
-  })
-}
+    if (!deletedReview) return res.status(400).json({ error: "Review not found" });
+    if (error) return res.status(400).json({ error: error.message });
+    return res.status(200).json({ message: `Review ${deletedReview.name} deleted successfully` });
+  });
+};
 
 // update route
 const update = (req, res) => {
-  db.Review.findByIdAndUpdate(req.params.id,
+  db.Review.findByIdAndUpdate(
+    req.params.id,
     {
-      $set: req.body
+      $set: req.body,
     },
-    {new: true},
+    { new: true },
     (err, updatedReview) => {
-      if(err) return res.status(400).json({error: err.message})
-      return res.status(200).json(updatedReview)
+      if (err) return res.status(400).json({ error: err.message });
+      return res.status(200).json(updatedReview);
     }
-  )
-}
-
+  );
+};
 
 module.exports = {
   index,
   create,
   destroy,
   update,
+  getById,
 };

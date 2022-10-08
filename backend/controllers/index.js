@@ -1,3 +1,3 @@
 module.exports = {
-    pley: require('./pley.ctrls.js')
-}
+  pley: require("./pley.ctrls.js"),
+};

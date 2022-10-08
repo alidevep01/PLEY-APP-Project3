@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
 
-const StarRating = () => {
+const StarRating = ({ handleChangeRating }) => {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
+
+  useEffect(() => {
+    handleChangeRating(rating);
+  }, [rating]);
+
   return (
     <div className="star-rating">
       {[...Array(5)].map((star, index) => {

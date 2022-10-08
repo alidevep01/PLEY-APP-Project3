@@ -91,3 +91,20 @@ button {
 .off {
   color: #ccc;
 }
+
+/* ************************ Review card ***********************************/
+
+.reviewCard {
+  margin-top: 10px;
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+button.btn.btn-warning {
+  margin-right: 10px;
+  width: 35px;
+  padding: 5px;
+}

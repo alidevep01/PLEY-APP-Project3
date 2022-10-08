@@ -6,28 +6,28 @@ import "../App.css";
 import { Link } from "react-router-dom";
 
 class RestaurantCard extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            recipes: {
-                id: '',
-                image: '',
-                title: '',
-                imageType: '',
-                isSelected: false
-            },
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      recipes: {
+        id: "",
+        image: "",
+        title: "",
+        imageType: "",
+        isSelected: false,
+      },
+    };
+  }
 
-    // recipeClick(selectedRecipe){
-    //     const { allRecipes } = this.state
-    //     console.log('recipeclick:',selectedRecipe.target.id)
-    //     this.setState({
-    //         recipes: this.props.recipes.map(recipe => ({
-    //             isSelected: (recipe.id === selectedRecipe) ? !recipe.isSelected : recipe.isSelected
-    //         }))
-    //     })
-    // }
+  // recipeClick(selectedRecipe) {
+  //   const { allRecipes } = this.state;
+  //   console.log("recipeclick:", selectedRecipe.target.id);
+  //   this.setState({
+  //     recipes: this.props.recipes.map((recipe) => ({
+  //       isSelected: recipe.id === selectedRecipe ? !recipe.isSelected : recipe.isSelected,
+  //     })),
+  //   });
+  // }
 
   render() {
     console.log("cardmap", this.props.recipes.results);
