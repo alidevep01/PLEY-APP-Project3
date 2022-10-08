@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 /* Components */
 import RestaurantCard from "./RestaurantCard";
 import RecipeCardId from "./RecipeCardId";
 import RecipeId from "./RecipeId";
+
 // import RecipeMap from './RecipeMap'
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
@@ -14,6 +15,7 @@ import Form from "react-bootstrap/Form";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 /* React Router */
 import { Link } from "react-router-dom";
+import ReviewForm from "./ReviewForm";
 
 // let recipe = "";
 
@@ -109,6 +111,7 @@ class NavbarPley extends Component {
           </Container>
         </Navbar>
         <RecipeId selectedRecipeId={this.state.selectedRecipe} />
+        <ReviewForm addReview={this.addReview} recipes={this.state.recipe} />
         <RestaurantCard recipes={this.state.recipe} />
         {/* <RecipeMap recipes={this.state.recipe}/> */}
       </div>
