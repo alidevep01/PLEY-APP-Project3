@@ -2,6 +2,7 @@ import React, { Component, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import "../App.css";
 // import { selectRecipe } from "./RestaurantCard";
 import { Link, useLocation } from "react-router-dom";
 
@@ -42,10 +43,11 @@ const RecipeId = (props) => {
     console.log("recipes are null");
   } else {
     return (
-      <Card>
+      <Card id='cardId'>
         {/* <h1>I am Recipe ID</h1> */}
         {/* {console.log(this.props.selectedRecipe)} */}
-        <img src={state.image} />
+        
+        <Card.Img  src={state.image} />
         <Card.Body>
             <Card.Title>{state.title}</Card.Title>
         </Card.Body>

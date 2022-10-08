@@ -26,8 +26,8 @@ class App extends Component {
     super(props);
     this.state = {
       baseURL: `https://api.spoonacular.com/recipes/complexSearch`,
-      apiKey: `?apiKey=a5bc09310d4c4673a21e07e15aa11be6&`,
-      // apiKey: `?apiKey=525d936c594d4320af982f3dc9d49a4e&`,
+      // apiKey: `?apiKey=a5bc09310d4c4673a21e07e15aa11be6&`,
+      apiKey: `?apiKey=525d936c594d4320af982f3dc9d49a4e&`,
       recipe: "",
       selectedRecipe: "",
     };
@@ -51,7 +51,7 @@ class App extends Component {
           <div className="mainContainer">
             <NavbarPley recipes={this.state.recipe} baseURL={this.state.baseURL} apiKey={this.state.apiKey} />
             {/* <RestaurantCard recipes={this.state.recipe} /> */}
-            <h1>Recipe</h1>
+            {/* <h1>Recipe</h1> */}
             <Routes>
               <Route path="/recipe" element={<ShowPage recipes={this.state.recipe} />}>
                 {/* <Route path=":id" element={<Reviews/>} /> */}

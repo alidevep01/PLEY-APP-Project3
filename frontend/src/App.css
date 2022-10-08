@@ -54,6 +54,28 @@ body {
   }
 }
 
+.recipeId{
+  /* display: flex; */
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+#showPage{
+  align-items: center;
+  justify-content: center;
+}
+
+#cardId{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  max-width: 800px;
+}
+
 /* ************************* Footer ******************************* */
 
 .footer {
