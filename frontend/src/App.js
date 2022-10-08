@@ -52,14 +52,12 @@ class App extends Component {
             <NavbarPley recipes={this.state.recipe} baseURL={this.state.baseURL} apiKey={this.state.apiKey} />
             {/* <RestaurantCard recipes={this.state.recipe} /> */}
             <h1>Recipe</h1>
-            <switch>
-              <Routes>
-                <Route path="/recipe" element={<ShowPage recipes={this.state.recipe} />}>
-                  <Route path=":id" element={<RecipeCardId recipes={this.state.recipe} />} />
-                </Route>
-                <Route path="/reviews" element={<Reviews />}></Route>
-              </Routes>
-            </switch>
+            <Routes>
+              <Route path="/recipe" element={<ShowPage recipes={this.state.recipe} />}>
+                <Route path=":id" element={<RecipeCardId recipes={this.state.recipe} />} />
+              </Route>
+              <Route path="/reviews" element={<Reviews />}></Route>
+            </Routes>
             {/* <ReviewForm addReview={this.addReview} /> */}
           </div>
           <Footer />
