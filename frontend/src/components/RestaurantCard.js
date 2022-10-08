@@ -58,7 +58,7 @@ class RestaurantCard extends Component {
             })}
           </Row>
           {/* {console.log('selectedRecipeId:', this.props.recipes.id)} */}
-          <RecipeId recipes={this.state.selectedRecipe} />
+          {/* <RecipeId recipes={this.state.selectedRecipe} /> */}
           {/* {console.log('recipeArray:', this.props.recipeArray)} */}
         </div>
       );
