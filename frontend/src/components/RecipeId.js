@@ -1,5 +1,5 @@
 import React, { Component, useState, } from "react";
-import { selectRecipe } from "./RestaurantCard";
+// import { selectRecipe } from "./RestaurantCard";
 import { Link, useLocation } from "react-router-dom";
 
 
@@ -36,16 +36,21 @@ import { Link, useLocation } from "react-router-dom";
 // export default RecipeId;
 
 const RecipeId = (props) => {
-    const location = useLocation()
+    const location =  useLocation()
     const state = location.state
     console.log('stateID',state)
-    return (
-        <div>
-            <h1>I am Recipe ID</h1>
-            {/* {console.log(this.props.selectedRecipe)} */}
-            <img src={state.image}/>
-        </div>
-    )
+    if (state === null) {
+        console.log("recipes are null");
+    } else {
+        return (
+            <div>
+                {/* <h1>I am Recipe ID</h1> */}
+                {/* {console.log(this.props.selectedRecipe)} */}
+                <img src={state.image}/>
+                <h1>{state.title}</h1>
+            </div>
+        )
+    }
 }
 
 export default RecipeId

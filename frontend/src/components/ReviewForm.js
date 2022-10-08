@@ -13,7 +13,7 @@ class ReviewForm extends React.Component {
       name: "",
       score: 0,
       review: "",
-      reviewId: this.props.recipes
+      reviewId: ''
     };
   }
 
@@ -45,6 +45,7 @@ class ReviewForm extends React.Component {
           name: "",
           score: 0,
           review: "",
+          review: ""
         });
       });
   };

@@ -56,7 +56,7 @@ class App extends Component {
             <Route path="/recipe" element={<ShowPage recipes={this.state.recipe}/>}>
               <Route path=":id" element={<RecipeId selectedRecipes={this.state.recipe}/>}/>
             </Route>
-            <Route path="/reviews" element={<Reviews/>}></Route>
+            {/* <Route path="/reviews" element={<Reviews/>}></Route> */}
             <Route path="/" element={<RestaurantCard recipes={this.state.recipe}/>}/>
           </Routes>
           {/* <ReviewForm addReview={this.addReview} /> */}
@@ -84,12 +84,12 @@ function Recipes() {
 //   )
 // }
 
-function Reviews() {
-  return(
-    <main>
-      <ReviewForm addReview={App.addReview}/>
-    </main>
-  )
-}
+// function Reviews() {
+//   return(
+//     <main>
+//       <ReviewForm addReview={App.addReview}/>
+//     </main>
+//   )
+// }
 
 export default App;

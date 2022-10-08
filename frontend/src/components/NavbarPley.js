@@ -77,6 +77,30 @@ class NavbarPley extends Component {
     console.log('handleclick:', this.props.recipe.results.id)
   }
 
+  // ifElseRender = () => {
+  //   if(RecipeId){
+  //     return this.RecipeIdFunction
+  //   }else{
+  //     return this.RestaurantCardFunction
+  //   }
+  // }
+
+  // RestaurantCardFunction = () => {
+  //   return(
+  //     <main>
+  //       <RestaurantCard recipes={this.state.recipe} />
+  //     </main>
+  //   )
+  // }
+
+  // RecipeIdFunction = () => {
+  //   return(
+  //     <main>
+  //       <RecipeId />
+  //     </main>
+  //   )
+  // }
+
   render() {
     return (
       <div>
@@ -106,6 +130,7 @@ class NavbarPley extends Component {
             </Navbar.Collapse>
           </Container>
         </Navbar>
+        {/* {this.ifElseRender} */}
         <RestaurantCard recipes={this.state.recipe} />
         {/* <RecipeMap recipes={this.state.recipe}/> */}
         {/* <RecipeId selectedRecipeId={this.state.selectedRecipe} /> */}
@@ -114,5 +139,5 @@ class NavbarPley extends Component {
   }
 }
 
-
 export default NavbarPley;
+
