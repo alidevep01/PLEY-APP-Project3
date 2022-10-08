@@ -12,20 +12,22 @@ class RestaurantCard extends Component {
         this.state = {
             recipes: {},
             selectedRecipe: {},
-            recipeArray: this.props.recipes
+            recipeArray: this.props.recipes,
+            hidden: {}
         }
+        this.recipeClick = this.recipeClick.bind(this)
     }
 
     recipeClick(event) {
-        console.log('clickedRecipe:', event)
-        this.setState(event)
-        // return arr.findIndex(event => event.target.id === id)
-        // this.setState({selectedRecipe: event.target})
-            // (event.target.id === this.props.recipes.results.id) && (console.log(this.props.recipes))
-        
-        
-        
-    }
+      console.log('clickedRecipe:', event)
+      this.setState(() => ({ hidden: {display: 'none'}}))
+      // this.setState(event)
+      // return arr.findIndex(event => event.target.id === id)
+      // this.setState({selectedRecipe: event.target})
+          // (event.target.id === this.props.recipes.results.id) && (console.log(this.props.recipes))
+      
+      // document.getElementsById('cardMap').style.visibility = 'hidden'
+      }
 
   render() {
     console.log("cardmap", this.props.recipes.results);
@@ -34,12 +36,12 @@ class RestaurantCard extends Component {
       console.log("recipes are null");
     } else {
       return (
-        <div className="recipeCard" style={{visibility: 'visible'}}>
+        <div className="recipeCard" >
         {/* {RecipeIdFunction(this.props.recipes)} */}
         
         {/* {selectRecipe(this.props.recipes)} */}
         {RecipeArray(this.props.recipes.results)}
-          <Row xs={1} md={2} lg={3} xl={4} xll={5} className="g-4">
+          <Row xs={1} md={2} lg={3} xl={4} xll={5} className="g-4" id='cardMap'style={{visibility: 'visible'}} >
             {this.props.recipes.results.map((results) => {
                 
               console.log('results:',results);
@@ -47,7 +49,7 @@ class RestaurantCard extends Component {
               return (
                 <Col>
                   <Card>
-                    <Link to={'/recipe/' + results.id} onClick={this.recipeClick} state={results}>
+                    <Link to={'/recipe/' + results.id} onClick={this.recipeClick} state={results} >
                         <Card.Img variant="top" src={results.image} id={results.id} title={results.title} image={results.image} value={results.id}/>
                     </Link>
                     {/* <a href={"/recipe/" + results.id}>

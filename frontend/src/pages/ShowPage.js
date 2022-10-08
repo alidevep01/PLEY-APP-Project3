@@ -12,7 +12,7 @@ class ShowPage extends NavbarPley {
                 <h1>Show Page</h1>
                 <RecipeId selectedRecipe={this.state.recipe}/>
                 {/* <RestaurantCard recipes={this.state.recipe}/> */}
-                <ReviewForm addReview={this.addReview} recipes={this.state.recipe} />
+                {/* <ReviewForm addReview={this.addReview} recipes={this.state.recipe} /> */}
             </div>
         );
     }

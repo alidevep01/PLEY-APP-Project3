@@ -54,7 +54,7 @@ class App extends Component {
           <h1>Recipe</h1>
           <Routes>
             <Route path="/recipe" element={<ShowPage recipes={this.state.recipe}/>}>
-              <Route path=":id" element={<RecipeId selectedRecipes={this.state.recipe}/>}/>
+              {/* <Route path=":id" element={<RecipeId selectedRecipes={this.state.recipe}/>}/> */}
             </Route>
             {/* <Route path="/reviews" element={<Reviews/>}></Route> */}
             <Route path="/" element={<RestaurantCard recipes={this.state.recipe}/>}/>
