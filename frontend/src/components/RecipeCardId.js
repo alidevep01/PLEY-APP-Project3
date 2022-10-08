@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, } from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -10,12 +10,13 @@ class RecipeCardId extends Component {
   constructor(props){
     super(props)
     this.state = {
+      recipes: '',
       selectedRecipe: {}
     }
   }
 
   // create function to find single recipe
-    //  on index page onClick() to find object in array of results
+    // on index page onClick() to find object in array of results
     // map through array
     // if else statement to show the clicked object
     // set state of object so we can prop it indiviually to other components
@@ -31,7 +32,7 @@ class RecipeCardId extends Component {
   //   });
   // }
 
-
+  let 
     render() {
       console.log('cardid:', this.props.selectedRecipe)
       if (this.props.recipes.results == null) {
@@ -41,15 +42,10 @@ class RecipeCardId extends Component {
         return (
 
           <div className="recipeCard">
-            <h1>{this.props.recipes.results.title}</h1>
+            {this.props.recipes.map(selectedRecipe => selectedRecipe.results === selectedRecipe.target.results)}
           </div>
         );
       }
-      const recipeShow = (results) => {
-        console.log('recipeshow: ',this.props.recipes.results)
-      }
-
-      recipeShow()
     }
   }
 

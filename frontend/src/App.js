@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route, Outlet, Link, useRouteMatch, useParams } from "react-router-dom";
 import ShowPage from "./pages/ShowPage";
 import RecipeCardId from "./components/RecipeCardId";
+import RecipeId from "./components/RecipeId";
 
 let baseURL = "";
 
@@ -26,7 +27,9 @@ class App extends Component {
     this.state = {
       baseURL: `https://api.spoonacular.com/recipes/complexSearch`,
       apiKey: `?apiKey=a5bc09310d4c4673a21e07e15aa11be6&`,
+      // apiKey: `?apiKey=525d936c594d4320af982f3dc9d49a4e&`,
       recipe: "",
+      selectedRecipe: "",
     };
   }
 
@@ -74,13 +77,13 @@ function Recipes() {
   );
 }
 
-function RecipeId() {
-  return (
-    <main>
-      <h2>This is my specific recipe</h2>
-    </main>
-  );
-}
+// function RecipeId() {
+//   return(
+//     <main>
+//       <h2>This is my specific recipe</h2>
+//     </main>
+//   )
+// }
 
 function Reviews() {
   return (
