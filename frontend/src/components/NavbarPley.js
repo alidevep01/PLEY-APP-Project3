@@ -108,9 +108,9 @@ class NavbarPley extends Component {
             </Navbar.Collapse>
           </Container>
         </Navbar>
+        <RecipeId selectedRecipeId={this.state.selectedRecipe} />
         <RestaurantCard recipes={this.state.recipe} />
         {/* <RecipeMap recipes={this.state.recipe}/> */}
-        {/* <RecipeId selectedRecipeId={this.state.selectedRecipe} /> */}
       </div>
     );
   }
