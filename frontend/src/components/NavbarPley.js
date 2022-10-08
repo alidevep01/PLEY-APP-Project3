@@ -3,6 +3,7 @@ import React, { Component, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import RecipeCardId from "./RecipeCardId";
 import RecipeId from "./RecipeId";
+import css from "../App.css";
 
 // import RecipeMap from './RecipeMap'
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -110,7 +111,7 @@ class NavbarPley extends Component {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <RecipeId selectedRecipeId={this.state.selectedRecipe} />
+        <RecipeId className= 'recipeID'selectedRecipeId={this.state.selectedRecipe} />
         <ReviewForm addReview={this.addReview} recipes={this.state.recipe} />
         <RestaurantCard recipes={this.state.recipe} />
         {/* <RecipeMap recipes={this.state.recipe}/> */}
