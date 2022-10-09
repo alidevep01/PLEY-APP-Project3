@@ -2,12 +2,13 @@ import "./App.css";
 import React, { Component } from "react";
 import NavbarPley from "./components/NavbarPley";
 import RestaurantCard from "./components/RestaurantCard";
-import ReviewForm from "./components/ReviewForm";
+import ReviewForm from "./components/OLD - ReviewForm";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route, Outlet, Link, useRouteMatch, useParams } from "react-router-dom";
 import ShowPage from "./pages/ShowPage";
 import RecipeCardId from "./components/RecipeCardId";
 import RecipeId from "./components/RecipeId";
+import ReviewFormNew from "./components/ReviewFormNew";
 
 let baseURL = "";
 
@@ -30,10 +31,34 @@ class App extends Component {
       apiKey: `?apiKey=525d936c594d4320af982f3dc9d49a4e&`,
       recipe: "",
       selectedRecipe: "",
+      reviews: []
     };
   }
 
-  addReview = (review) => {
+  componentDidMount(){
+    this.getReviews()
+  }
+
+  getReviews = () => {
+    fetch(baseURL + '/pley')
+    .then((res) => {
+      if(res.status === 200) {
+        return res.json()
+      }else{
+        return []
+      }
+    })
+    .then((data) => {
+      console.log('data', data)
+      if(data === []) {
+        this.setState({ reviews: data})
+      }else{
+        this.setState({reviews: data.reviews})
+      }
+    })
+  }
+
+  handleAddReview = (review) => {
     const copyReview = [...this.state.reviews];
     copyReview.unshift(review);
     this.setState({
@@ -47,9 +72,10 @@ class App extends Component {
   render() {
     return (
       <>
+        {console.log('appJsGet:', this.state.reviews)}
         <Router>
           <div className="mainContainer">
-            <NavbarPley recipes={this.state.recipe} baseURL={this.state.baseURL} apiKey={this.state.apiKey} />
+            <NavbarPley recipes={this.state.recipe} baseURL={this.state.baseURL} reviews={this.state.reviews} apiKey={this.state.apiKey} />
             {/* <RestaurantCard recipes={this.state.recipe} /> */}
             <Routes>
               <Route path="/recipe" element={<ShowPage recipes={this.state.recipe} />}>
@@ -58,7 +84,7 @@ class App extends Component {
               </Route>
               {/* <Route path="/reviews" element={<Reviews />}></Route> */}
             </Routes>
-            {/* <ReviewForm addReview={this.addReview} /> */}
+            <ReviewFormNew handleAddReview={this.handleAddReview}/>
           </div>
           <Footer />
         </Router>
