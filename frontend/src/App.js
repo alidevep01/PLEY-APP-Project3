@@ -84,7 +84,7 @@ class App extends Component {
               </Route>
               {/* <Route path="/reviews" element={<Reviews />}></Route> */}
             </Routes>
-            <ReviewFormNew handleAddReview={this.handleAddReview}/>
+            <ReviewFormNew handleAddReview={this.handleAddReview} reviews={this.state.reviews}/>
           </div>
           <Footer />
         </Router>
@@ -100,14 +100,6 @@ function Recipes() {
     </main>
   );
 }
-
-// function RecipeId() {
-//   return(
-//     <main>
-//       <h2>This is my specific recipe</h2>
-//     </main>
-//   )
-// }
 
 function Reviews() {
   return (

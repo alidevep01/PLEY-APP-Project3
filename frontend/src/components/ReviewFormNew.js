@@ -4,6 +4,7 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
+import Card from "react-bootstrap/Card";
 import StarRating from "./StarRating";
 
 class ReviewFormNew extends Component {
@@ -34,7 +35,7 @@ class ReviewFormNew extends Component {
     };
 
     loadList = () => {
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/pley/${window.location.pathname.split("/")[2]}`, {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/pley`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -106,6 +107,35 @@ class ReviewFormNew extends Component {
                         Post Recipe
                     </Button>
                 </form>
+
+                <div className="">
+                    {this.props.reviews.length > 0
+                        ? this.props.reviews.map((review) => {
+                            return ( 
+                            <div className="reviewCard">
+                                <Card border="secondary">
+                                <Card.Header className="reviewHeader">
+                                    {review.name}
+                                    <span className="reviewbtn">
+                                    <Button variant="warning">
+                                        🖊
+                                    </Button>
+                                    <Button variant="danger" >X</Button>
+                                    {/* onClick={handleDeleteReview(props.id)} */}
+                                    </span>
+                                </Card.Header>
+                                <Card.Body>
+                                    <Card.Title>{review.score}</Card.Title>
+                                    <Card.Text>{review.review}</Card.Text>
+                                </Card.Body>
+                                </Card>
+                                <br />
+                            </div>
+                          )
+                        })
+                        : "No Recipes"}
+                        {console.log('bottom', this.props.reviews.name)}
+                </div>
             </div>
         );
     }
