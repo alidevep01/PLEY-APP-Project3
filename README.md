@@ -1,5 +1,5 @@
 <div align="center">
-   <h1> Pley <span> <img  width="50px" src="https://user-images.githubusercontent.com/57377203/191138234-0c4f38db-45e0-4a8f-b249-429718ddfa9c.png"/> </span></h1> <i>Find Food Feed nearby
+   <h1> Pley <span> <img  width="50px" src="https://user-images.githubusercontent.com/57377203/191138234-0c4f38db-45e0-4a8f-b249-429718ddfa9c.png"/> </span></h1> <i>Try new Recipes 👀
  </i> 
   
   <h3>   With Pley you can look up recipes based on cuisine and add in your own requests! </h3>
