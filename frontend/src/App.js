@@ -9,6 +9,7 @@ import ShowPage from "./pages/ShowPage";
 import RecipeCardId from "./components/RecipeCardId";
 import RecipeId from "./components/RecipeId";
 import ReviewFormNew from "./components/ReviewFormNew";
+import ReviewModal from './components/ReviewModal'
 
 let baseURL = "";
 
@@ -31,7 +32,8 @@ class App extends Component {
       apiKey: `?apiKey=525d936c594d4320af982f3dc9d49a4e&`,
       recipe: "",
       selectedRecipe: "",
-      reviews: []
+      reviews: [],
+      show: false
     };
   }
 
@@ -83,6 +85,19 @@ class App extends Component {
     })
   }
 
+
+  showModal = (event) => {
+    this.setState({
+      show: true
+    })
+  }
+
+  hideModal = (event) => {
+    this.setState({
+      show: false
+    })
+  }
+
   render() {
     return (
       <>
@@ -98,7 +113,9 @@ class App extends Component {
               </Route>
               {/* <Route path="/reviews" element={<Reviews />}></Route> */}
             </Routes>
-            <ReviewFormNew handleAddReview={this.handleAddReview} handleDelete={this.handleDelete} reviews={this.state.reviews}/>
+            <ReviewFormNew handleAddReview={this.handleAddReview} handleDelete={this.handleDelete} showModal={this.showModal} reviews={this.state.reviews} show={this.state.show}/>
+            <ReviewModal hideModal={this.hideModal} reviews={this.state.reviews} show={this.state.show}/>
+            
           </div>
           <Footer />
         </Router>

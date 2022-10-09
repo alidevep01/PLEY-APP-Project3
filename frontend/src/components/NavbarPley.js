@@ -115,7 +115,6 @@ class NavbarPley extends Component {
           </Container>
         </Navbar>
         <RecipeId className= 'recipeID'selectedRecipeId={this.state.selectedRecipe} />
-        <ReviewForm addReview={this.addReview} recipes={this.state.recipe} />
         <RestaurantCard recipes={this.state.recipe} />
         {/* <RecipeMap recipes={this.state.recipe}/> */}
       </div>
