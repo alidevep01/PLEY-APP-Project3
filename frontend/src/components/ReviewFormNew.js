@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
 import Card from "react-bootstrap/Card";
 import StarRating from "./StarRating";
+import App from '../App';
 
 class ReviewFormNew extends Component {
     constructor(props) {
@@ -120,8 +121,7 @@ class ReviewFormNew extends Component {
                                     <Button variant="warning">
                                         🖊
                                     </Button>
-                                    <Button variant="danger" >X</Button>
-                                    {/* onClick={handleDeleteReview(props.id)} */}
+                                    <Button variant="danger" onClick={() => this.props.handleDelete(review._id)}>X</Button>
                                     </span>
                                 </Card.Header>
                                 <Card.Body>

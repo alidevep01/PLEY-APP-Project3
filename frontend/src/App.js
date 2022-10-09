@@ -69,6 +69,20 @@ class App extends Component {
     });
   };
 
+  handleDelete = (id) => {
+    fetch(baseURL + '/pley/' + id, {
+      method: 'DELETE'
+    })
+    .then( res => {
+      const copyReviews = [...this.state.reviews]
+      const findIndex = this.state.reviews.findIndex(
+        (review) => review._id === id
+      )
+      copyReviews.splice(findIndex, 1)
+      this.setState({ reviews: copyReviews})
+    })
+  }
+
   render() {
     return (
       <>
@@ -84,7 +98,7 @@ class App extends Component {
               </Route>
               {/* <Route path="/reviews" element={<Reviews />}></Route> */}
             </Routes>
-            <ReviewFormNew handleAddReview={this.handleAddReview} reviews={this.state.reviews}/>
+            <ReviewFormNew handleAddReview={this.handleAddReview} handleDelete={this.handleDelete} reviews={this.state.reviews}/>
           </div>
           <Footer />
         </Router>
