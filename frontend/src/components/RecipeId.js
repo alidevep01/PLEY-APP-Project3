@@ -5,6 +5,8 @@ import Row from "react-bootstrap/Row";
 import "../App.css";
 // import { selectRecipe } from "./RestaurantCard";
 import { Link, useLocation } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import css from "../App.css";
 
 // class RecipeId extends Component {
 

@@ -51,7 +51,6 @@ class App extends Component {
           <div className="mainContainer">
             <NavbarPley recipes={this.state.recipe} baseURL={this.state.baseURL} apiKey={this.state.apiKey} />
             {/* <RestaurantCard recipes={this.state.recipe} /> */}
-            {/* <h1>Recipe</h1> */}
             <Routes>
               <Route path="/recipe" element={<ShowPage recipes={this.state.recipe} />}>
                 {/* <Route path=":id" element={<Reviews/>} /> */}

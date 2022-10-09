@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "../App.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import Reviews from "./Reviews";
+import { handleDeleteReview } from "./Reviews";
 
 function EachReview(props, handleDelete) {
   const [reviews, getReviews] = useState("");
@@ -11,10 +13,11 @@ function EachReview(props, handleDelete) {
         <Card.Header className="reviewHeader">
           {props.review.name}
           <span className="reviewbtn">
-            <Button variant="warning" onClick={handleDelete}>
+            <Button variant="warning">
               🖊
             </Button>
-            <Button variant="danger">X</Button>
+            <Button variant="danger" >X</Button>
+            {/* onClick={handleDeleteReview(props.id)} */}
           </span>
         </Card.Header>
         <Card.Body>
