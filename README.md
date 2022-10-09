@@ -2,7 +2,7 @@
    <h1> Pley <span> <img  width="50px" src="https://user-images.githubusercontent.com/57377203/191138234-0c4f38db-45e0-4a8f-b249-429718ddfa9c.png"/> </span></h1> <i>Find Food Feed nearby
  </i> 
   
-  <h3>   With Pley you can look up resturants near by based on reviews and Favourite them accordingly! </h3>
+  <h3>   With Pley you can look up recipes based on cuisine and add in your own requests! </h3>
   
   <ul align="left"> 
     <h3>Technologies Used </h3>
@@ -14,22 +14,22 @@
      <li> Git</li>
      <li> Github</li>
      <li> Heroku</li>
+     <li>Router</li>
   </ul>
   
   
   <ul align="left">
   <h4> User Stories </h4>
-    <li>A user should be able to access the recomended resturants via homepage! </li>
-      <li> A user should be able to register or Login </li>
+    <li>A user should be able to search for recipes via homepage! </li>
       <li> A user should be able to Logout</li>
-      <li>A user should be able to search for resturants by Name, categories, location ..... </li>
-      <li> A user should be able to go to their login profile and view their favorited resturants </li>
-      <li> A user should be able to go to the resturant id page from the view page or Index page </li>
-      <li>A user should be able to bookmark which will be reflected in Homepage </li>
-         <li>A user should be able to write, edit,update and delete their review on the resturant id page only when logged in </li>
-    <li> A user should be directed to the Yelp page if need more information </li>
+      <li>A user should be able to search for recipes  </li>
+      <li> A user should be able to access the specific recipe </li>
+         <li>A user should be able to write, edit,update and delete their review on the recipe  </li>
+         <li> A user should be able to click on another recipe to display it over the current one </li>
      </ul>
     
+    <h3>Unsolved Problems</h3>
+    <li>Unable to change pages(HCurrently rendering show page on top of home page)</li>
     
   
 <h3> ----- WireFrame ----- </h3> <br>
