@@ -113,33 +113,33 @@ class ReviewModal extends Component {
         return (
             <div>
                 {this.props.reviews.map((review) => {
-                    console.log('mapId:',review._id)
-                    if(this.props.reviews === review) {
+                    console.log('mapId:',this.props.reviews)
+                    if(review) {
                         console.log('mapId2:',review)
+                        return (
+                            <form onSubmit={this.handleUpdate}>
+                                <h1>Update Recipe</h1>
+                                {/* ******************* Name Floating Label ******************************** */}
+                                <Form.Group className="mb-3" controlId="floatingInput">
+                                    <FloatingLabel controlId="floatingInput" label={review.name} className="mb-3">
+                                    <Form.Control type="text" placeholder={this.props.name} name="name" onChange={this.handleChangeName} value={this.props.name} />
+                                    </FloatingLabel>
+                                </Form.Group>
+                                {/* ******************* Star Rating ******************************** */}
+                                <StarRating handleChangeRating={this.handleChangeRating} />
+                                {/* ******************* Comments Floating Label ******************************** */}
+                                <Form.Group className="mb-3" controlId="floatingTextarea2">
+                                    <FloatingLabel controlId="floatingTextarea2" label="Recipe Desciption">
+                                    <Form.Control as="textarea" name="review" onChange={this.handleChangeReview} value={this.props.review} placeholder="Leave a comment here" style={{ height: "100px" }} />
+                                    </FloatingLabel>
+                                </Form.Group>
+                                {/* ******************* Submit Button ******************************** */}
+                                <Button variant="primary" type="submit">
+                                    Post Recipe
+                                </Button>
+                            </form>
+                        )
                     }
-                    return (
-                        <form onSubmit={this.handleUpdate}>
-                            <h1>Update Recipe</h1>
-                            {/* ******************* Name Floating Label ******************************** */}
-                            <Form.Group className="mb-3" controlId="floatingInput">
-                                <FloatingLabel controlId="floatingInput" label={review.name} className="mb-3">
-                                <Form.Control type="text" placeholder={this.props.name} name="name" onChange={this.handleChangeName} value={this.props.name} />
-                                </FloatingLabel>
-                            </Form.Group>
-                            {/* ******************* Star Rating ******************************** */}
-                            <StarRating handleChangeRating={this.handleChangeRating} />
-                            {/* ******************* Comments Floating Label ******************************** */}
-                            <Form.Group className="mb-3" controlId="floatingTextarea2">
-                                <FloatingLabel controlId="floatingTextarea2" label="Recipe Desciption">
-                                <Form.Control as="textarea" name="review" onChange={this.handleChangeReview} value={this.props.review} placeholder="Leave a comment here" style={{ height: "100px" }} />
-                                </FloatingLabel>
-                            </Form.Group>
-                            {/* ******************* Submit Button ******************************** */}
-                            <Button variant="primary" type="submit">
-                                Post Recipe
-                            </Button>
-                        </form>
-                    )
                 })}
 
                 {console.log('reviewlookup:', this.props.reviews)}
