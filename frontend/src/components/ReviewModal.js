@@ -81,23 +81,32 @@ class ReviewModal extends Component {
     }
 
 
-    handleUpdate = (event) => {
-        console.log('update:',event)
-        event.prevent.default()
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/pley`, {
+    handleUpdate = (id) => {
+        // id.prevent.default()
+        console.log('update:', id)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/pley/${id._id}`, {
             method: "PUT",
             body: JSON.stringify({
               name: this.state.name,
               score: this.state.score,
               review: this.state.review,
+              reviews: this.state.reviews
             }),
             headers: {
               "Content-Type": "application/json",
             },
           })
-          .then((res) => {
-            console.log(res.data)
-            console.log('successfully updated')
+          .then((res) => res.json())
+          .then((resJson) => {
+            console.log('resJson:', resJson)
+            const copyReviews = [...this.state.reviews]
+            const findIndex = this.state.reviews.findIndex(
+                (review) => review._id === resJson._id
+            )
+            copyReviews[findIndex]._id = resJson._id
+            if(id._id = resJson._id){
+                this.setState({ reviews: copyReviews})
+            }
           })
           .catch((error) => {
             console.log(error)
@@ -113,16 +122,15 @@ class ReviewModal extends Component {
         return (
             <div>
                 {this.props.reviews.map((review) => {
-                    console.log('mapId:',this.props.reviews)
+                    console.log('mapId:',review)
                     if(review) {
-                        console.log('mapId2:',review)
                         return (
-                            <form onSubmit={this.handleUpdate}>
+                            <form onSubmit={this.handleUpdate(review)}>
                                 <h1>Update Recipe</h1>
                                 {/* ******************* Name Floating Label ******************************** */}
                                 <Form.Group className="mb-3" controlId="floatingInput">
                                     <FloatingLabel controlId="floatingInput" label={review.name} className="mb-3">
-                                    <Form.Control type="text" placeholder={this.props.name} name="name" onChange={this.handleChangeName} value={this.props.name} />
+                                    <Form.Control type="text" name="name" onChange={this.handleChangeName} value={this.state.name} />
                                     </FloatingLabel>
                                 </Form.Group>
                                 {/* ******************* Star Rating ******************************** */}
@@ -130,7 +138,7 @@ class ReviewModal extends Component {
                                 {/* ******************* Comments Floating Label ******************************** */}
                                 <Form.Group className="mb-3" controlId="floatingTextarea2">
                                     <FloatingLabel controlId="floatingTextarea2" label="Recipe Desciption">
-                                    <Form.Control as="textarea" name="review" onChange={this.handleChangeReview} value={this.props.review} placeholder="Leave a comment here" style={{ height: "100px" }} />
+                                    <Form.Control as="textarea" name="review" onChange={this.handleChangeReview} value={this.state.review} style={{ height: "100px" }} />
                                     </FloatingLabel>
                                 </Form.Group>
                                 {/* ******************* Submit Button ******************************** */}

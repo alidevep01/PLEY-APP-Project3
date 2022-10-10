@@ -53,6 +53,7 @@ class ReviewFormNew extends Component {
             this.setState({
               reviews: resJson.reviews.reverse(),
             });
+            console.log('loadlist',this.state.reviews)
           })
           .catch((err) => {
             console.log(err);
