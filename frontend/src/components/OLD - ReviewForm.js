@@ -90,7 +90,7 @@ class ReviewForm extends React.Component {
     return (
       <>
         <form onSubmit={this.handleSubmit}>
-          <h1>Suggest a Recipe</h1>
+          <h1>Suggest A Recipe</h1>
           {/* ******************* Name Floating Label ******************************** */}
           <Form.Group className="mb-3" controlId="floatingInput">
             <FloatingLabel controlId="floatingInput" label="Your Name" className="mb-3">
@@ -101,7 +101,7 @@ class ReviewForm extends React.Component {
           <StarRating handleChangeRating={this.handleChangeRating} />
           {/* ******************* Comments Floating Label ******************************** */}
           <Form.Group className="mb-3" controlId="floatingTextarea2">
-            <FloatingLabel controlId="floatingTextarea2" label="Recipe Description">
+            <FloatingLabel controlId="floatingTextarea2" label="Recipe Desciption">
               <Form.Control as="textarea" name="review" onChange={this.handleChange} placeholder="Leave a comment here" style={{ height: "100px" }} />
             </FloatingLabel>
           </Form.Group>

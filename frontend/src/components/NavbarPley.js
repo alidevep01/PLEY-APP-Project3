@@ -16,7 +16,8 @@ import Form from "react-bootstrap/Form";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 /* React Router */
 import { Link } from "react-router-dom";
-import ReviewForm from "./ReviewForm";
+import ReviewForm from "./OLD - ReviewForm";
+import "../App.css";
 
 // let recipe = "";
 
@@ -28,6 +29,7 @@ class NavbarPley extends Component {
       apiKey: this.props.apiKey,
       recipe: "",
       selectedRecipe: "",
+      reviews: []
     };
   }
 
@@ -84,7 +86,8 @@ class NavbarPley extends Component {
 
   render() {
     return (
-      <div>
+      <div id="showPage">
+        {console.log('navbarget:',this.props.reviews)}
         <Navbar bg="light" expand="lg" fixed="top">
           <Container>
             <Navbar.Brand href="/">
@@ -112,7 +115,6 @@ class NavbarPley extends Component {
           </Container>
         </Navbar>
         <RecipeId className= 'recipeID'selectedRecipeId={this.state.selectedRecipe} />
-        <ReviewForm addReview={this.addReview} recipes={this.state.recipe} />
         <RestaurantCard recipes={this.state.recipe} />
         {/* <RecipeMap recipes={this.state.recipe}/> */}
       </div>

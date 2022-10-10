@@ -37,7 +37,7 @@ function Reviews({ list }) {
         ? list.map((item, index) => {
             return <EachReview review={item} key={index} handleDelete={() => deleteReview(item.id)} />;
           })
-        : "No Reviews"}
+        : "No Recipes"}
     </div>
   );
 }
