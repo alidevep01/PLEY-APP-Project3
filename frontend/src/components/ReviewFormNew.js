@@ -124,7 +124,7 @@ class ReviewFormNew extends Component {
                                 <Card.Header className="reviewHeader">
                                     {review.name}
                                     <span className="reviewbtn">
-                                    <Button variant="warning" onClick={() => this.props.showModal(this.props.reviews)}>
+                                    <Button variant="warning" onClick={() => this.props.showModal()}>
                                         🖊
                                     </Button>
                                     <Button variant="danger" onClick={() => this.props.handleDelete(review._id)}>X</Button>

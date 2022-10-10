@@ -90,6 +90,7 @@ class App extends Component {
 
   showModal = (event) => {
     this.setState({
+      // reviews: this.state.reviews,
       show: true
     })
   }
