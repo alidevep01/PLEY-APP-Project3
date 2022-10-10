@@ -85,6 +85,8 @@ class App extends Component {
     })
   }
 
+  
+
 
   showModal = (event) => {
     this.setState({
@@ -114,7 +116,7 @@ class App extends Component {
               {/* <Route path="/reviews" element={<Reviews />}></Route> */}
             </Routes>
             <ReviewFormNew handleAddReview={this.handleAddReview} handleDelete={this.handleDelete} showModal={this.showModal} reviews={this.state.reviews} show={this.state.show}/>
-            <ReviewModal hideModal={this.hideModal} reviews={this.state.reviews} show={this.state.show}/>
+            <ReviewModal hideModal={this.hideModal} reviews={this.state.reviews} handleAddReview={this.handleAddReview} show={this.state.show}/>
             
           </div>
           <Footer />

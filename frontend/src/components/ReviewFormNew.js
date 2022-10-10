@@ -6,8 +6,11 @@ import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
 import Card from "react-bootstrap/Card";
 import StarRating from "./StarRating";
-import ReviewModal from './ReviewModal'
-import App from '../App';
+// import ReviewModal from './ReviewModal'
+import App from '../App'
+
+const baseURL = `${process.env.REACT_APP_BACKEND_URL}`;
+
 
 class ReviewFormNew extends Component {
     constructor(props) {
@@ -16,7 +19,7 @@ class ReviewFormNew extends Component {
             name: "",
             score: 0,
             review: "",
-            reviews: this.props.reviews,
+            reviews: [],
             show: this.props.show
         }
     }
@@ -56,6 +59,7 @@ class ReviewFormNew extends Component {
           });
       };
 
+    
     handleSubmit = (event) => {
         event.preventDefault();
         fetch(`${process.env.REACT_APP_BACKEND_URL}/pley/${window.location.pathname.split("/")[2]}`, {
@@ -84,7 +88,7 @@ class ReviewFormNew extends Component {
           });
       };
 
-
+    
 
     render() { 
         return (
@@ -111,8 +115,6 @@ class ReviewFormNew extends Component {
                     </Button>
                 </form>
 
-                <ReviewModal hideModal={this.hideModal} reviews={this.state.reviews} show={this.state.show}/>
-
                 <div className="">
                     {this.props.reviews.length > 0
                         ? this.props.reviews.map((review) => {
@@ -122,7 +124,7 @@ class ReviewFormNew extends Component {
                                 <Card.Header className="reviewHeader">
                                     {review.name}
                                     <span className="reviewbtn">
-                                    <Button variant="warning" onClick={() => this.props.showModal()}>
+                                    <Button variant="warning" onClick={() => this.props.showModal(this.props.reviews)}>
                                         🖊
                                     </Button>
                                     <Button variant="danger" onClick={() => this.props.handleDelete(review._id)}>X</Button>
@@ -138,7 +140,7 @@ class ReviewFormNew extends Component {
                           )
                         })
                         : "No Recipes"}
-                        {console.log('bottom', this.props.reviews.name)}
+                        {console.log('bottom', this.props.reviews)}
                 </div>
             </div>
         );
