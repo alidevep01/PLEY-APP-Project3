@@ -17,11 +17,11 @@ class ReviewModal extends Component {
         this.handleChangeScore = this.handleChangeScore.bind(this)
         this.handleChangeReview = this.handleChangeReview.bind(this)
         this.state = {
-            name: this.props.reviews.name,
-            score: this.props.reviews.score,
-            review: this.props.reviews.review,
-            reviews: this.props.reviews,
-            show: this.props.show
+        name: this.props.reviews.name,
+        score: this.props.reviews.score,
+        review: this.props.reviews.review,
+        reviews: this.props.reviews,
+        show: this.props.show
         }
     }
 
