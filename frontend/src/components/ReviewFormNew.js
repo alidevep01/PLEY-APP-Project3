@@ -62,8 +62,9 @@ class ReviewFormNew extends Component {
 
     
     handleSubmit = (event) => {
+      
         event.preventDefault();
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/pley/${window.location.pathname.split("/")[2]}`, {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/pley/`, {
           method: "POST",
           body: JSON.stringify({
             name: this.state.name,
@@ -87,6 +88,7 @@ class ReviewFormNew extends Component {
           .catch((err) => {
             console.log(err);
           });
+          console.log('this is URL',`${process.env.REACT_APP_BACKEND_URL}/pley/${window.location.pathname.split("/")[2]}`);
       };
 
     
